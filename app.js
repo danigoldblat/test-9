@@ -5,6 +5,7 @@ import usersRoutes from "./routes/usersR.js"
 import eventsRoutes from "./routes/eventsR.js"
 import { ValidationE } from "./middlewares/validationEvents.js"
 import { ValidationB } from "./middlewares/ValidationBy.js"
+import BuyTickets from "./routes/ByTickets.js"
 
 const app = express()
 const port = 3075
