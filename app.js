@@ -1,8 +1,8 @@
 import express from "express"
 import { Auth } from "./utils/utils.js"
-import {Validation} from "./utils/utils.js"
+import {Validation} from "./middlewares/validation.js"
 import usersRoutes from "./routes/usersR.js"
-import { readFile, writeFile } from "node:fs"
+
 const app = express()
 const port = 3075
 app.use(express.json())
