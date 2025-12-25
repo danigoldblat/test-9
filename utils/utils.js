@@ -1,3 +1,4 @@
+import fs from "fs/promises"
 export const Auth = async (req, res) => {
   try {
     res.json({ ok: true });
@@ -23,14 +24,3 @@ export async function writeFile(path,data){
         })
     }
 
-export const Validation = async (req, res, next) => {
-  const users = await readFile("../data/users.js");
-  const match = users.find((user) => 
-    user.username === req.headers.username &&
-    user.password === req.headers.password)
-     if(match){
-      next();
-    } else {
-      res.status(401).json("username or password not found");
-    }
-  }
