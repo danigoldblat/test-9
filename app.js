@@ -4,13 +4,15 @@ import {ValidationU} from "./middlewares/validationUsers.js"
 import usersRoutes from "./routes/usersR.js"
 import eventsRoutes from "./routes/eventsR.js"
 import { ValidationE } from "./middlewares/validationEvents.js"
+import { ValidationB } from "./middlewares/ValidationBy.js"
 
 const app = express()
 const port = 3075
 app.use(express.json())
 app.get("/health",Auth)
-app.use("/users",ValidationU,usersRoutes)
-app.use("/events",ValidationE,eventsRoutes)
+app.use("/",ValidationU,usersRoutes)
+app.use("/",ValidationE,eventsRoutes)
+app.use("/",ValidationB,BuyTickets)
 
 
 
