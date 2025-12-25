@@ -1,13 +1,16 @@
 import express from "express"
 import { Auth } from "./utils/utils.js"
-import {Validation} from "./middlewares/validation.js"
+import {ValidationU} from "./middlewares/validationUsers.js"
 import usersRoutes from "./routes/usersR.js"
+import eventsRoutes from "./routes/eventsR.js"
+import { ValidationE } from "./middlewares/validationEvents.js"
 
 const app = express()
 const port = 3075
 app.use(express.json())
 app.get("/health",Auth)
-app.use("/users",Validation,usersRoutes)
+app.use("/users",ValidationU,usersRoutes)
+app.use("/events",ValidationE,eventsRoutes)
 
 
 

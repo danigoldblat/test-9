@@ -1,9 +1,10 @@
+
 import {readFile} from "../utils/utils.js"
-export const Validation = async (req, res, next) => {
+export const ValidationE = async (req, res, next) => {
   const users = await readFile("data/users.json")
-  const match = await users.find((user) => 
-    user.username === req.headers.username &&
-    user.password === req.headers.password)
+  const match = users.find((user) => 
+    user.username === req.body.username &&
+    user.password === req.body.password)
      if(match){
       next();
     } else {
